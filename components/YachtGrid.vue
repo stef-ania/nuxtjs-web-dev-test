@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import type { Yacht } from "~/types/yacht";
+import Button from "~/components/ui/Button.vue";
 
 const yachts = ref<Yacht[]>([]);
 const errorMessage = ref("");
@@ -20,6 +21,13 @@ onMounted(async () => {
     errorMessage.value = `Failed to fetch yachts data: ${error.message}`;
     console.error(error);
   }
+});
+
+defineProps({
+  yacht: {
+    type: Object,
+    required: true,
+  },
 });
 </script>
 
@@ -45,6 +53,9 @@ onMounted(async () => {
         <h4 class="yacht-name">
           {{ yacht.name }}
         </h4>
+
+        <!-- Button -->
+        <Button text="Enquiry" />
       </div>
     </div>
   </div>
