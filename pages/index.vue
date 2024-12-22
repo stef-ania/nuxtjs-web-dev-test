@@ -1,15 +1,17 @@
 <script setup lang="ts">
-const version = 3;
+import YachtGrid from "~/components/YachtGrid.vue";
 </script>
 
 <template>
-  <div class="hello">Hello Nuxt {{ version }}!</div>
+  <div>
+    <h1>Product Grid</h1>
+    <YachtGrid />
+  </div>
 </template>
 
 <style scoped>
-.hello {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 3rem;
-  padding: 2rem;
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 </style>
