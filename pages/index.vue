@@ -1,21 +1,27 @@
 <script setup lang="ts">
 import YachtGrid from "~/components/YachtGrid.vue";
 import Logo from "@/components/ui/Logo.vue";
+import GridHeaderList from "@/components/GridHeaderList.vue";
 </script>
 
 <template>
   <header>
     <Logo class="logo" />
   </header>
-  <div>
-    <h1>Product Grid</h1>
+  <main class="main">
+    <GridHeaderList class="grid-header-list" />
     <YachtGrid />
-  </div>
+  </main>
 </template>
 
 <style scoped>
-h1 {
-  text-align: center;
-  margin-bottom: 2rem;
+.main {
+  margin: 2.5rem 0.75rem 3.5rem;
+}
+
+@media (min-width: 1024px) {
+  .main {
+    margin: 2.5rem 1rem 7.5rem;
+  }
 }
 </style>
