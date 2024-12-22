@@ -11,6 +11,11 @@
 
   --light-color: #fff;
 
+  --font-size-sm: 1rem;
+  --font-size-md: 1.25rem;
+
+  --line-height-sm: 175%;
+
   --ocean-lux-400: #a1a1ab;
   --ocean-lux-600: #676778;
   --ocean-lux-800: #323349;
@@ -34,6 +39,6 @@
 body {
   background-color: var(--light-color);
   color: var(--color-primary-900);
-  font-size: 1rem;
+  font-size: var(--font-size-sm);
   line-height: 175%;
 }

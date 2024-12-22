@@ -29,7 +29,9 @@ onMounted(async () => {
     <div class="yacht-grid" v-else>
       <div v-for="yacht in yachts" :key="yacht.id" class="yacht-card">
         <!-- Yacht Image -->
-        <img :src="yacht.coverImage.url" :alt="yacht.name" class="yacht-image" />
+        <picture class="yacht-picture">
+          <img loading="lazy" :src="yacht.coverImage.url" :alt="yacht.name" class="yacht-image" />
+        </picture>
 
         <!-- Yacht Price -->
         <div class="yacht-price">Price: €{{ yacht.buyPrice.EUR.toLocaleString() }}</div>
@@ -40,9 +42,9 @@ onMounted(async () => {
         </div>
 
         <!-- Yacht Name -->
-        <div class="yacht-name">
+        <h4 class="yacht-name">
           {{ yacht.name }}
-        </div>
+        </h4>
       </div>
     </div>
   </div>
@@ -56,34 +58,37 @@ onMounted(async () => {
 }
 
 .yacht-card {
-  border: 1px solid #ddd;
-  padding: 16px;
-  background-color: white;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--light-color);
+  text-align: left;
+  margin-bottom: 3.75rem;
+}
+
+.yacht-picture {
+  display: block;
+  aspect-ratio: 351 / 220;
 }
 
 .yacht-image {
+  object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .yacht-price {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 12px;
+  line-height: var(--line-height-sm);
+  color: var(--black-scale-500);
+  margin-top: 0.2rem;
 }
 
 .yacht-details {
-  font-size: 14px;
-  color: #666;
-  margin-top: 8px;
+  color: var(--black-scale-700);
+  margin-bottom: 1.5rem;
+  line-height: var(--line-height-sm);
 }
 
 .yacht-name {
-  font-size: 16px;
-  font-weight: 500;
-  margin-top: 12px;
+  font-size: var(--font-size-md);
+  line-height: 150%;
 }
 
 @media (min-width: 768px) {
