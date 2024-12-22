@@ -59,7 +59,7 @@ defineProps({
           </h4>
 
           <!-- Button -->
-          <Button text="Enquiry" />
+          <Button text="Enquiry" class="yacht-btn" />
         </div>
       </div>
     </div>
@@ -90,6 +90,7 @@ defineProps({
   z-index: 1;
   top: 0.625rem;
   right: 0.625rem;
+  opacity: 1;
 }
 
 .yacht-image {
@@ -122,6 +123,11 @@ defineProps({
   line-height: 150%;
 }
 
+.yacht-btn {
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
 @media (min-width: 768px) {
   .yacht-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -135,6 +141,22 @@ defineProps({
   .yacht-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 0px 0.2rem;
+  }
+
+  .bookmark-btn {
+    opacity: 0;
+  }
+
+  .yacht-card:hover .bookmark-btn {
+    opacity: 1;
+  }
+
+  .yacht-btn {
+    opacity: 0;
+  }
+
+  .yacht-card:hover .yacht-btn {
+    opacity: 1;
   }
 }
 </style>
