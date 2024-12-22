@@ -49,13 +49,15 @@ defineProps({
           Length: {{ yacht.length.meters }}m | Guests: {{ yacht.guestsNumber }} | Cabins: {{ yacht.cabinsNumber }}
         </div>
 
-        <!-- Yacht Name -->
-        <h4 class="yacht-name">
-          {{ yacht.name }}
-        </h4>
+        <div class="yatch-card-footer">
+          <!-- Yacht Name -->
+          <h4 class="yacht-name">
+            {{ yacht.name }}
+          </h4>
 
-        <!-- Button -->
-        <Button text="Enquiry" />
+          <!-- Button -->
+          <Button text="Enquiry" />
+        </div>
       </div>
     </div>
   </div>
@@ -97,6 +99,13 @@ defineProps({
   line-height: var(--line-height-sm);
 }
 
+.yatch-card-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .yacht-name {
   font-size: var(--font-size-md);
   line-height: 150%;
@@ -105,6 +114,10 @@ defineProps({
 @media (min-width: 768px) {
   .yacht-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .yatch-card-footer {
+    margin-right: 1rem;
   }
 }
 @media (min-width: 1024px) {
