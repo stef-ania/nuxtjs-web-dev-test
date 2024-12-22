@@ -60,7 +60,12 @@ onMounted(async () => {
   }
   .grid-header-list {
     justify-content: space-between;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--background-color, #fff);
+    padding: 1rem 0;
   }
 
   .hidden-in-mobile {
