@@ -2,6 +2,7 @@
 import { ref, onMounted } from "vue";
 import type { Yacht } from "~/types/yacht";
 import Button from "~/components/ui/Button.vue";
+import BookmarkBtn from "@/components/ui/BookmarkBtn.vue";
 
 const yachts = ref<Yacht[]>([]);
 const errorMessage = ref("");
@@ -38,6 +39,8 @@ defineProps({
       <div v-for="yacht in yachts" :key="yacht.id" class="yacht-card">
         <!-- Yacht Image -->
         <picture class="yacht-picture">
+          <!-- Bookmark Button -->
+          <BookmarkBtn class="bookmark-btn" />
           <img loading="lazy" :src="yacht.coverImage.url" :alt="yacht.name" class="yacht-image" />
         </picture>
 
@@ -79,6 +82,14 @@ defineProps({
 .yacht-picture {
   display: block;
   aspect-ratio: 351 / 220;
+  position: relative;
+}
+
+.bookmark-btn {
+  position: absolute;
+  z-index: 1;
+  top: 0.625rem;
+  right: 0.625rem;
 }
 
 .yacht-image {
