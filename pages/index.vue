@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import YachtGrid from "~/components/YachtGrid.vue";
+import Logo from "@/components/ui/Logo.vue";
 </script>
 
 <template>
+  <header>
+    <Logo class="logo" />
+  </header>
   <div>
     <h1>Product Grid</h1>
     <YachtGrid />
