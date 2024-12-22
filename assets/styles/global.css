@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "UrbanGrotesk";
+  font-style: normal;
+  font-weight: normal;
+  src: url("~/assets/fonts/UrbanGroteskReBo-Regular.woff2") format("woff2"),
+    url("~/assets/fonts/UrbanGroteskMeBI-Regular.woff2") format("woff");
+}
+
+:root {
+  --font-primary: "UrbanGrotesk", Arial, sans-serif;
+
+  --light-color: #fff;
+
+  --ocean-lux-400: #a1a1ab;
+  --ocean-lux-600: #676778;
+  --ocean-lux-800: #323349;
+
+  --color-primary-500: #405757;
+  --color-primary-600: #102d2d;
+  --color-primary-900: #091919;
+
+  --black-scale-200: #dfdfdf;
+  --black-scale-500: #858585;
+  --black-scale-700: #4e4e4e;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--light-color);
+  color: var(--color-primary-900);
+  font-size: 1rem;
+  line-height: 175%;
+}
