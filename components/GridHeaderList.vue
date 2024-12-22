@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import ViewMoreGrid from "@/components/ui/ViewMoreGrid.vue";
+import ViewLessGrid from "@/components/ui/ViewLessGrid.vue";
+</script>
+
 <template>
   <h3 class="hidden-in-desktop">BUY · 240 Yacths</h3>
   <div class="grid-header-list">
@@ -5,8 +10,8 @@
     <nav>
       <div class="grid-options">
         View
-        <button>2 products</button>
-        <button>4 products</button>
+        <ViewLessGrid />
+        <ViewMoreGrid />
       </div>
     </nav>
   </div>
@@ -52,8 +57,11 @@
   .grid-options {
     opacity: 1;
     border-left: 1px solid var(--black-scale-200);
-    padding-left: 1.25rem;
+    padding: 0 1.25rem;
     color: var(--ocean-lux-600);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 }
 </style>
