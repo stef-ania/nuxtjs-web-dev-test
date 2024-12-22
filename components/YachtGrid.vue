@@ -38,11 +38,13 @@ defineProps({
     <div class="yacht-grid" v-else>
       <div v-for="yacht in yachts" :key="yacht.id" class="yacht-card">
         <!-- Yacht Image -->
-        <picture class="yacht-picture">
-          <!-- Bookmark Button -->
-          <BookmarkBtn class="bookmark-btn" />
-          <img loading="lazy" :src="yacht.coverImage.url" :alt="yacht.name" class="yacht-image" />
-        </picture>
+        <a href="#" target="_blank">
+          <picture class="yacht-picture">
+            <!-- Bookmark Button -->
+            <BookmarkBtn class="bookmark-btn" />
+            <img loading="lazy" :src="yacht.coverImage.url" :alt="yacht.name" class="yacht-image" />
+          </picture>
+        </a>
 
         <!-- Yacht Price -->
         <div class="yacht-price">Price: €{{ yacht.buyPrice.EUR.toLocaleString() }}</div>
