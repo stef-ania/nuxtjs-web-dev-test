@@ -28,6 +28,10 @@
   --black-scale-200: #dfdfdf;
   --black-scale-500: #858585;
   --black-scale-700: #4e4e4e;
+
+  --columns-1: 1;
+  --columns-2: 2;
+  --columns-4: 4;
 }
 
 * {

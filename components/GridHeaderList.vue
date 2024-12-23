@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, inject } from "vue";
 import ViewMoreGrid from "@/components/ui/ViewMoreGrid.vue";
 import ViewLessGrid from "@/components/ui/ViewLessGrid.vue";
 
@@ -19,6 +19,12 @@ onMounted(async () => {
     errorMessage.value = `Error fetching yachts: ${error.message}`;
   }
 });
+
+const setColumns = inject("setColumns");
+
+if (!setColumns) {
+  console.error("setColumns is ot available");
+}
 </script>
 
 <template>
@@ -28,8 +34,8 @@ onMounted(async () => {
     <nav>
       <div class="grid-options">
         View
-        <ViewLessGrid />
-        <ViewMoreGrid />
+        <ViewLessGrid @click="setColumns(2)" />
+        <ViewMoreGrid @click="setColumns(4)" />
       </div>
     </nav>
   </div>
@@ -54,7 +60,7 @@ onMounted(async () => {
   display: none;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .hidden-in-desktop {
     display: none;
   }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, defineProps } from "vue";
 import type { Yacht } from "~/types/yacht";
 import Button from "~/components/ui/Button.vue";
 import BookmarkBtn from "@/components/ui/BookmarkBtn.vue";
@@ -29,13 +29,17 @@ defineProps({
     type: Object,
     required: true,
   },
+  gridClass: {
+    type: String,
+    required: true,
+  },
 });
 </script>
 
 <template>
   <div>
     <p v-if="errorMessage">{{ errorMessage }}</p>
-    <div class="yacht-grid" v-else>
+    <div :class="[gridClass, 'yacht-grid']" v-else>
       <div v-for="yacht in yachts" :key="yacht.id" class="yacht-card">
         <!-- Yacht Image -->
         <a href="#" target="_blank">
@@ -71,8 +75,16 @@ defineProps({
 <style scoped>
 .yacht-grid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: 1fr;
   gap: 0px 0.2rem;
+}
+
+.columns-2 {
+  --columns: 2;
+}
+
+.columns-4 {
+  --columns: 4;
 }
 
 .yacht-card {
@@ -132,19 +144,16 @@ defineProps({
 
 @media (min-width: 768px) {
   .yacht-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(var(--columns, 4), 1fr);
+    gap: 0px 0.2rem;
   }
 
   .yatch-card-footer {
     margin-right: 1rem;
   }
 }
-@media (min-width: 1024px) {
-  .yacht-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0px 0.2rem;
-  }
 
+@media (min-width: 1024px) {
   .bookmark-btn {
     opacity: 0;
   }

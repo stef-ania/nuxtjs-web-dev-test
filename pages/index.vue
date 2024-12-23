@@ -1,7 +1,16 @@
 <script setup lang="ts">
-import YachtGrid from "~/components/YachtGrid.vue";
+import { provide, ref } from "vue";
 import Logo from "@/components/ui/Logo.vue";
+import YachtGrid from "~/components/YachtGrid.vue";
 import GridHeaderList from "@/components/GridHeaderList.vue";
+
+const gridClass = ref("columns-1");
+
+function setColumns(columns: number) {
+  gridClass.value = columns === 2 ? "columns-2" : "columns-4";
+}
+
+provide("setColumns", setColumns);
 </script>
 
 <template>
@@ -10,7 +19,7 @@ import GridHeaderList from "@/components/GridHeaderList.vue";
   </header>
   <main class="main">
     <GridHeaderList class="grid-header-list" />
-    <YachtGrid />
+    <YachtGrid :class="gridClass" />
   </main>
 </template>
 
