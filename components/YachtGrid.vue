@@ -7,23 +7,42 @@ import BookmarkBtn from "@/components/ui/BookmarkBtn.vue";
 
 const yachts = ref<Yacht[]>([]);
 const errorMessage = ref("");
+const currentPage = ref(1);
+const totalPages = ref(1);
 
-onMounted(async () => {
+const fetchYachts = async (page: number) => {
   try {
-    const response = await fetch("/api/yachts");
+    const response = await fetch(`/api/yachts?page=${page}`);
     const data = await response.json();
     console.log("Data received:", data);
 
     if (data.error) {
       errorMessage.value = `Error: ${data.error} - ${data.details || "No additional details"}`;
     } else {
-      yachts.value = data.data;
+      if (page === 1) {
+        yachts.value = data.data;
+      } else {
+        yachts.value = [...yachts.value, ...data.data];
+      }
+
+      totalPages.value = data.meta.totalPages;
     }
   } catch (error) {
     errorMessage.value = `Failed to fetch yachts data: ${error.message}`;
     console.error(error);
   }
+};
+
+onMounted(() => {
+  fetchYachts(currentPage.value);
 });
+
+const loadMore = () => {
+  if (currentPage.value < totalPages.value) {
+    currentPage.value++;
+    fetchYachts(currentPage.value);
+  }
+};
 
 defineProps({
   yacht: {
@@ -52,7 +71,7 @@ defineProps({
         </a>
 
         <!-- Yacht Price -->
-        <div class="yacht-price">Price: €{{ yacht.buyPrice.EUR.toLocaleString() }}</div>
+        <div class="yacht-price">Price: €{{ yacht.buyPrice?.EUR ? yacht.buyPrice.EUR.toLocaleString() : "N/A" }}</div>
 
         <!-- Yacht Details -->
         <div class="yacht-details">
@@ -73,7 +92,7 @@ defineProps({
 
     <!-- Secondary Button Wrapper -->
     <div class="load-more-btn-wrapper">
-      <SecondaryButton text="Load more" class="load-more-btn" />
+      <SecondaryButton text="Load more" @click="loadMore" :disabled="currentPage.value >= totalPages.value" />
     </div>
     <!-- End secondary Button Wrapper -->
   </div>
