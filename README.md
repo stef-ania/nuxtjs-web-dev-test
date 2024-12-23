@@ -10,15 +10,11 @@ https://royaloceanyachts.com/api/yachts?buy=true&page=1
 
 This project uses **pnpm** for managing dependencies. Ensure you have pnpm installed before running the project. You can install it globally using:
 
-### pnpm
-
 ```bash
 npm install -g pnpm
 ```
 
 Alternatively, you can use npx for a temporary alias:
-
-### pnpm with temporary alias
 
 ```bash
 npx pnpm install
@@ -28,15 +24,11 @@ npx pnpm install
 
 Start the development server on `http://localhost:3000`:
 
-### pnpm
-
 ```bash
 pnpm dev
 ```
 
 Alternatively, you can use npx if you are using a temporary alias:
-
-### pnpm with temporary alias
 
 ```bash
 npx pnpm run dev
