@@ -2,6 +2,7 @@
 import { ref, onMounted, defineProps } from "vue";
 import type { Yacht } from "~/types/yacht";
 import Button from "~/components/ui/Button.vue";
+import SecondaryButton from "~/components/ui/SecondaryButton.vue";
 import BookmarkBtn from "@/components/ui/BookmarkBtn.vue";
 
 const yachts = ref<Yacht[]>([]);
@@ -64,11 +65,17 @@ defineProps({
             {{ yacht.name }}
           </h4>
 
-          <!-- Button -->
+          <!-- Primary Button -->
           <Button text="Enquiry" class="yacht-btn" />
         </div>
       </div>
     </div>
+
+    <!-- Secondary Button Wrapper -->
+    <div class="load-more-btn-wrapper">
+      <SecondaryButton text="Load more" class="load-more-btn" />
+    </div>
+    <!-- End secondary Button Wrapper -->
   </div>
 </template>
 
@@ -143,6 +150,11 @@ defineProps({
   opacity: 1;
 }
 
+.load-more-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 @media (min-width: 768px) {
   .yacht-grid {
     grid-template-columns: repeat(var(--columns, 4), 1fr);
@@ -151,6 +163,10 @@ defineProps({
 
   .yatch-card-footer {
     margin-right: 1rem;
+  }
+
+  .load-more-btn-wrapper {
+    margin: 5rem auto;
   }
 }
 

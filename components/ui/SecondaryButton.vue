@@ -12,22 +12,23 @@ defineProps({
 </script>
 
 <template>
-  <button class="button" :class="buttonClass">{{ text }}</button>
+  <button class="secondary-button">{{ text }}</button>
 </template>
 
 <style scoped>
-.button {
+.secondary-button {
   padding: 0.5rem 1rem;
   font-size: var(--font-size-sm);
   cursor: pointer;
-  border: none;
-  background-color: var(--color-primary-500);
-  color: var(--light-color);
+  border: 1px solid var(--ocean-lux-400);
+  background-color: var(--light-color);
+  color: var(--color-primary-600);
   transition: background-color ease 0.3s;
   line-height: var(--line-height-sm);
 
   &:hover {
-    background-color: var(--color-primary-800);
+    border: 1px solid var(--ocean-lux-600);
+    color: var(--color-primary-800);
   }
 }
 </style>
