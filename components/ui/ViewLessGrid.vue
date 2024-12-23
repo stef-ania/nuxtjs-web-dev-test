@@ -1,6 +1,22 @@
+<script setup lang="ts">
+import selectedIcon from "@/assets/img/icons/View_less_grid_selected.svg";
+import unselectedIcon from "@/assets/img/icons/View_less_grid_unselected.svg";
+
+const activeGridView = inject("activeGridView");
+const setActiveGridView = inject("setActiveGridView");
+
+if (!activeGridView || !setActiveGridView) {
+  console.error("Context from this active grid view is not available");
+}
+
+function handleClick() {
+  setActiveGridView("less");
+}
+</script>
+
 <template>
-  <button class="view-less-grid">
-    <img src="/assets/img/icons/View_less_grid_unselected.svg" alt="View less grid" />
+  <button class="view-less-grid" @click="handleClick">
+    <img :src="activeGridView === 'less' ? selectedIcon : unselectedIcon" alt="View less grid" />
   </button>
 </template>
 

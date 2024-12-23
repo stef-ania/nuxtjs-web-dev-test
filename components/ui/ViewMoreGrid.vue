@@ -1,6 +1,22 @@
+<script setup lang="ts">
+import selectedIcon from "@/assets/img/icons/View_more_grid_selected.svg";
+import unselectedIcon from "@/assets/img/icons/View_more_grid_unselected.svg";
+
+const activeGridView = inject("activeGridView");
+const setActiveGridView = inject("setActiveGridView");
+
+if (!activeGridView || !setActiveGridView) {
+  console.error("Context from this active grid view is not available");
+}
+
+function handleClick() {
+  setActiveGridView("more");
+}
+</script>
+
 <template>
-  <button class="view-more-grid">
-    <img src="/assets/img/icons/View_more_grid_selected.svg" alt="View more grid" />
+  <button class="view-more-grid" @click="handleClick">
+    <img :src="activeGridView === 'more' ? selectedIcon : unselectedIcon" alt="View more grid" />
   </button>
 </template>
 

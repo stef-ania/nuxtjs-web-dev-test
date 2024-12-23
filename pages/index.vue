@@ -4,6 +4,15 @@ import Logo from "@/components/ui/Logo.vue";
 import YachtGrid from "~/components/YachtGrid.vue";
 import GridHeaderList from "@/components/GridHeaderList.vue";
 
+const activeGridView = ref("more");
+
+const setActiveGridView = (view: string) => {
+  activeGridView.value = view;
+};
+
+provide("activeGridView", activeGridView);
+provide("setActiveGridView", setActiveGridView);
+
 const gridClass = ref("columns-1");
 
 function setColumns(columns: number) {
