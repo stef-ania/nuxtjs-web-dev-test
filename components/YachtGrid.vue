@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, defineProps } from "vue";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import type { Yacht } from "~/types/yacht";
 import Button from "~/components/ui/Button.vue";
 import SecondaryButton from "~/components/ui/SecondaryButton.vue";
@@ -35,6 +37,12 @@ const fetchYachts = async (page: number) => {
 
 onMounted(() => {
   fetchYachts(currentPage.value);
+
+  // Animation
+  AOS.init({
+    duration: 1500,
+    once: false,
+  });
 });
 
 const loadMore = () => {
@@ -60,7 +68,7 @@ defineProps({
   <div>
     <p v-if="errorMessage">{{ errorMessage }}</p>
     <div :class="[gridClass, 'yacht-grid']" v-else>
-      <div v-for="yacht in yachts" :key="yacht.id" class="yacht-card">
+      <div v-for="yacht in yachts" :key="yacht.id" class="yacht-card" data-aos="fade-up">
         <!-- Yacht Image -->
         <a href="#" target="_blank">
           <picture class="yacht-picture">
