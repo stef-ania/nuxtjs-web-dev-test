@@ -1,4 +1,4 @@
-# Web Developer, Technical test
+# Web Developer - Technical test
 
 ## Description
 
@@ -29,7 +29,11 @@ Start the development server on `http://localhost:3000`:
 ```bash
 # pnpm
 pnpm dev
+```
 
+Alternatively, you can use npx if you are using a temporary alias:
+
+```bash
 # pnpm with temporary alias
 npx pnpm run dev
 ```
