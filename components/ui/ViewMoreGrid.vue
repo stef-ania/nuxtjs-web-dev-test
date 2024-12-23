@@ -1,6 +1,6 @@
 <template>
   <button class="view-more-grid">
-    <img src="/assets/img/icons/View_more_grid_unselected.svg" alt="View more grid" />
+    <img src="/assets/img/icons/View_more_grid_selected.svg" alt="View more grid" />
   </button>
 </template>
 

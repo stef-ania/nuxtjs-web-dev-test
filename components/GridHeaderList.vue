@@ -34,8 +34,8 @@ if (!setColumns) {
     <nav>
       <div class="grid-options">
         View
-        <ViewLessGrid @click="setColumns(2)" />
         <ViewMoreGrid @click="setColumns(4)" />
+        <ViewLessGrid @click="setColumns(2)" />
       </div>
     </nav>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <button class="view-less-grid">
-    <img src="/assets/img/icons/View_less_grid_selected.svg" alt="View less grid" />
+    <img src="/assets/img/icons/View_less_grid_unselected.svg" alt="View less grid" />
   </button>
 </template>
 
