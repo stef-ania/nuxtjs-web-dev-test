@@ -75,8 +75,9 @@ defineProps({
 <style scoped>
 .yacht-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(var(--columns-1, 1), 1fr);
   gap: 0px 0.2rem;
+  transition: grid-template-columns 0.4s ease-in-out;
 }
 
 .columns-2 {

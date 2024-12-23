@@ -33,4 +33,9 @@ function handleClick() {
   height: 24px;
   display: flex;
 }
+
+.view-more-grid img:hover {
+  opacity: 0.8;
+  transition: all ease 0.3ms;
+}
 </style>
