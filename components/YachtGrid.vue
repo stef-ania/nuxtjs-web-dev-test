@@ -3,7 +3,7 @@ import { ref, onMounted, defineProps } from "vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import type { Yacht } from "~/types/yacht";
-import Button from "~/components/ui/Button.vue";
+import PrimaryButton from "~/components/ui/PrimaryButton.vue";
 import SecondaryButton from "~/components/ui/SecondaryButton.vue";
 import BookmarkBtn from "@/components/ui/BookmarkBtn.vue";
 
@@ -101,7 +101,7 @@ defineProps({
           </h4>
 
           <!-- Primary Button -->
-          <Button text="Enquiry" class="yacht-btn" />
+          <PrimaryButton text="Enquiry" class="yacht-btn" />
         </div>
       </div>
     </div>

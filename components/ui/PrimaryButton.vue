@@ -12,11 +12,11 @@ defineProps({
 </script>
 
 <template>
-  <button class="button" :class="buttonClass">{{ text }}</button>
+  <button class="primary-button" :class="buttonClass">{{ text }}</button>
 </template>
 
 <style scoped>
-.button {
+.primary-button {
   padding: 0.5rem 1rem;
   font-size: var(--font-size-sm);
   cursor: pointer;
