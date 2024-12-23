@@ -8,6 +8,7 @@ import SecondaryButton from "~/components/ui/SecondaryButton.vue";
 import BookmarkBtn from "@/components/ui/BookmarkBtn.vue";
 
 const yachts = ref<Yacht[]>([]);
+const loading = ref(true);
 const errorMessage = ref("");
 const currentPage = ref(1);
 const totalPages = ref(1);
@@ -28,6 +29,7 @@ const fetchYachts = async (page: number) => {
       }
 
       totalPages.value = data.meta.totalPages;
+      loading.value = false;
     }
   } catch (error) {
     errorMessage.value = `Failed to fetch yachts data: ${error.message}`;
@@ -67,6 +69,12 @@ defineProps({
 <template>
   <div>
     <p v-if="errorMessage">{{ errorMessage }}</p>
+    <!-- Loading spinner -->
+    <div v-if="loading" class="loading">
+      <p>Loading...</p>
+    </div>
+    <!-- Ehd loading spinner -->
+
     <div :class="[gridClass, 'yacht-grid']" v-else>
       <div v-for="yacht in yachts" :key="yacht.id" class="yacht-card" data-aos="fade-up">
         <!-- Yacht Image -->
@@ -107,6 +115,14 @@ defineProps({
 </template>
 
 <style scoped>
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 2rem;
+}
+
 .yacht-grid {
   display: grid;
   grid-template-columns: repeat(var(--columns-1, 1), 1fr);
