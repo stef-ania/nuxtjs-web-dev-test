@@ -27,14 +27,21 @@ provide("setColumns", setColumns);
     <Logo class="logo" />
   </header>
   <main class="main">
-    <GridHeaderList class="grid-header-list" />
-    <YachtGrid :class="gridClass" />
+    <div class="grid-wrapper">
+      <GridHeaderList class="grid-header-list" />
+      <YachtGrid :class="gridClass" />
+    </div>
   </main>
 </template>
 
 <style scoped>
 .main {
   margin: 2.5rem 0.75rem 3.5rem;
+}
+
+.grid-wrapper {
+  max-width: 1980px;
+  margin: 0 auto;
 }
 
 @media (min-width: 1024px) {
